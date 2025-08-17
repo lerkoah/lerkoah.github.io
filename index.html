@@ -3,614 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lerko Araya Hernández - Ingeniero Eléctrico y Científico de Datos especializado en Machine Learning y Procesamiento de Señales">
+    <meta name="keywords" content="Data Scientist, Machine Learning, Ingeniero Eléctrico, Signal Processing, Python, Deep Learning">
+    <meta name="author" content="Lerko Araya Hernández">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lerko Araya Hernández - Electrical Engineer & Data Scientist">
+    <meta property="og:description" content="Transformando datos en decisiones inteligentes | Machine Learning | Signal Processing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lerkoah.github.io">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lerko Araya Hernández - Electrical Engineer & Data Scientist">
+    <meta name="twitter:description" content="Transformando datos en decisiones inteligentes | Machine Learning | Signal Processing">
+    
     <title>Lerko Araya Hernández - Electrical Engineer & Data Scientist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #0f1729;
-            --bg-tertiary: #1a2332;
-            --accent-primary: #673AB7;
-            --accent-secondary: #7E57C2;
-            --accent-light: #9575CD;
-            --accent-cyan: #00BCD4;
-            --text-primary: #e8eaf6;
-            --text-secondary: #9ca3af;
-            --card-bg: rgba(26, 35, 50, 0.7);
-            --gradient-1: linear-gradient(135deg, #673AB7 0%, #512DA8 100%);
-            --gradient-2: linear-gradient(135deg, #7E57C2 0%, #00BCD4 100%);
-            --gradient-3: linear-gradient(135deg, #311B92 0%, #673AB7 50%, #00BCD4 100%);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background with cold geometric patterns */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(103, 58, 183, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 188, 212, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(81, 45, 168, 0.08) 0%, transparent 50%);
-            z-index: -1;
-            animation: floatingGradient 25s ease infinite;
-        }
-
-        @keyframes floatingGradient {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(-20px, -20px) rotate(120deg); }
-            66% { transform: translate(20px, -10px) rotate(240deg); }
-        }
-
-        /* Geometric decoration */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(45deg, transparent 48%, rgba(103, 58, 183, 0.03) 50%, transparent 52%);
-            background-size: 20px 20px;
-            z-index: -1;
-            opacity: 0.5;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(180deg, rgba(10, 14, 26, 0.98) 0%, rgba(10, 14, 26, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 30px rgba(103, 58, 183, 0.1);
-            border-bottom: 1px solid rgba(103, 58, 183, 0.2);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding: 0 1rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-2);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-light);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6rem 2rem 2rem;
-            position: relative;
-            background: linear-gradient(180deg, transparent 0%, rgba(103, 58, 183, 0.02) 100%);
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            background: var(--gradient-3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 8s ease infinite;
-            background-size: 200% 200%;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero h2 {
-            color: var(--accent-cyan);
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .hero-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .hero-links a {
-            padding: 0.75rem 1.5rem;
-            background: rgba(103, 58, 183, 0.1);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(103, 58, 183, 0.3);
-            backdrop-filter: blur(10px);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-links a:hover {
-            background: var(--accent-primary);
-            border-color: var(--accent-primary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(103, 58, 183, 0.4);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            color: var(--text-primary);
-            font-weight: 200;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: var(--gradient-1);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            background: linear-gradient(135deg, rgba(26, 35, 50, 0.7) 0%, rgba(103, 58, 183, 0.05) 100%);
-            padding: 2.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            border: 1px solid rgba(103, 58, 183, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-2);
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-cyan) 100%);
-            opacity: 0.3;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 3rem 0;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: 51%;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 51%;
-        }
-
-        .timeline-content {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(103, 58, 183, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(103, 58, 183, 0.2);
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 40px rgba(103, 58, 183, 0.3);
-            border-color: var(--accent-primary);
-        }
-
-        .timeline-date {
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .timeline-title {
-            color: var(--accent-light);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .timeline-company {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--gradient-1);
-            border-radius: 50%;
-            top: 2rem;
-            box-shadow: 0 0 30px rgba(103, 58, 183, 0.8);
-            border: 3px solid var(--bg-primary);
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(103, 58, 183, 0.05) 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(103, 58, 183, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover::before {
-            transform: scaleX(1);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(103, 58, 183, 0.3);
-            border-color: var(--accent-primary);
-        }
-
-        .skill-category h3 {
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 400;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: rgba(103, 58, 183, 0.1);
-            color: var(--text-primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 3px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(103, 58, 183, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--accent-primary);
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(103, 58, 183, 0.4);
-        }
-
-        /* Language Bars */
-        .language-item {
-            margin: 1.5rem 0;
-        }
-
-        .language-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .language-bar {
-            height: 8px;
-            background: rgba(103, 58, 183, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid rgba(103, 58, 183, 0.2);
-        }
-
-        .language-progress {
-            height: 100%;
-            background: var(--gradient-2);
-            border-radius: 4px;
-            animation: fillBar 2s ease forwards;
-            box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
-        }
-
-        @keyframes fillBar {
-            from { width: 0; }
-        }
-
-        /* Publications */
-        .publication-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(103, 58, 183, 0.05) 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            border-left: 3px solid var(--accent-primary);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(103, 58, 183, 0.2);
-        }
-
-        .publication-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(103, 58, 183, 0.3);
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(103, 58, 183, 0.1) 100%);
-        }
-
-        .publication-card h3 {
-            color: var(--accent-light);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .contact-item {
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(103, 58, 183, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(103, 58, 183, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(103, 58, 183, 0.2) 0%, transparent 70%);
-            transition: all 0.5s ease;
-        }
-
-        .contact-item:hover::before {
-            width: 200%;
-            height: 200%;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(103, 58, 183, 0.3);
-            border-color: var(--accent-primary);
-        }
-
-        .contact-item h3 {
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-item a {
-            color: var(--accent-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--text-primary);
-        }
-
-        /* Floating Action Button */
-        .fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 30px rgba(103, 58, 183, 0.5);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            border: 2px solid transparent;
-        }
-
-        .fab:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 10px 40px rgba(103, 58, 183, 0.7);
-            border-color: var(--accent-cyan);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item .timeline-content {
-                margin-left: 60px !important;
-                margin-right: 0 !important;
-                text-align: left !important;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-primary);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-secondary);
-        }
-    </style>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lerko Araya Hernández",
+        "jobTitle": "Data Scientist",
+        "description": "Electrical Engineer & Data Scientist especializado en Machine Learning y Signal Processing",
+        "url": "https://lerkoah.github.io",
+        "sameAs": [
+            "https://linkedin.com/in/lerkoah",
+            "https://github.com/lerkoah"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -804,4 +235,86 @@
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Herramientas
+                <h3>Herramientas</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Jupyter</span>
+                    <span class="skill-tag">VSCode</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Elasticsearch</span>
+                    <span class="skill-tag">Kibana</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Language Skills -->
+        <div style="margin-top: 4rem;">
+            <h3 style="color: var(--accent-cyan); text-align: center; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px;">Idiomas</h3>
+            <div class="language-item">
+                <div class="language-header">
+                    <span>Español</span>
+                    <span>Nativo</span>
+                </div>
+                <div class="language-bar">
+                    <div class="language-progress" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="language-item">
+                <div class="language-header">
+                    <span>Inglés</span>
+                    <span>Avanzado</span>
+                </div>
+                <div class="language-bar">
+                    <div class="language-progress" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="fade-in">
+        <h2 class="section-title">Publicaciones</h2>
+        <div class="publication-card">
+            <h3>Bayesian sparse reconstruction in radio interferometry</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Monthly Notices of the Royal Astronomical Society, 2019</p>
+            <p>Propuesta de modelos Bayesianos para la reconstrucción de imágenes en radio-astronomía interferométrica con estimación de incertidumbre.</p>
+        </div>
+        
+        <div class="publication-card">
+            <h3>Uncertainty quantification in interferometric imaging</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Astronomical Society of the Pacific Conference Series, 2018</p>
+            <p>Métodos para cuantificar la incertidumbre en procesos de reconstrucción de imágenes astronómicas.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <a href="mailto:lerkoah@outlook.com">lerkoah@outlook.com</a>
+            </div>
+            <div class="contact-item">
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/lerkoah" target="_blank">linkedin.com/in/lerkoah</a>
+            </div>
+            <div class="contact-item">
+                <h3>GitHub</h3>
+                <a href="https://github.com/lerkoah" target="_blank">github.com/lerkoah</a>
+            </div>
+            <div class="contact-item">
+                <h3>Ubicación</h3>
+                <p>Santiago, Chile</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <a href="#home" class="fab" title="Volver arriba">
+        ↑
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
