@@ -1,12 +1,17 @@
 // Funcionalidad principal del sitio web
 
 document.addEventListener('DOMContentLoaded', function() {
-    initScrollAnimations();
-    initSmoothScrolling();
-    initNavigationHighlight();
-    initTimelineAnimations();
-    initLanguageBars();
-    initParticleBackground();
+    try {
+        initScrollAnimations();
+        initSmoothScrolling();
+        initNavigationHighlight();
+        initTimelineAnimations();
+        initLanguageBars();
+        initParticleBackground();
+        console.log('JavaScript cargado correctamente');
+    } catch (error) {
+        console.error('Error al cargar JavaScript:', error);
+    }
 });
 
 // Animaciones al hacer scroll
@@ -32,18 +37,51 @@ function initScrollAnimations() {
 
 // Smooth scrolling para los enlaces de navegación
 function initSmoothScrolling() {
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    navLinks.forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
             if (target) {
-                const headerHeight = document.querySelector('nav').offsetHeight;
+                const nav = document.querySelector('nav');
+                const headerHeight = nav ? nav.offsetHeight : 80;
                 const targetPosition = target.offsetTop - headerHeight - 20;
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                // Fallback para navegadores que no soportan scroll suave
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Animación manual para navegadores antiguos
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 800;
+                    let start = null;
+                    
+                    function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const percentage = Math.min(progress / duration, 1);
+                        
+                        // Función de easing
+                        const ease = percentage < 0.5 ? 
+                            2 * percentage * percentage : 
+                            1 - Math.pow(-2 * percentage + 2, 2) / 2;
+                        
+                        window.scrollTo(0, startPosition + (distance * ease));
+                        
+                        if (progress < duration) {
+                            requestAnimationFrame(step);
+                        }
+                    }
+                    
+                    requestAnimationFrame(step);
+                }
             }
         });
     });
