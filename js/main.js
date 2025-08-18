@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         initNavigationHighlight();
         initTimelineAnimations();
         initLanguageBars();
-        initParticleBackground();
         console.log('JavaScript cargado correctamente');
     } catch (error) {
         console.error('Error al cargar JavaScript:', error);
@@ -160,70 +159,7 @@ function initLanguageBars() {
     }
 }
 
-// Efecto de partículas en el fondo
-function initParticleBackground() {
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'particle-container';
-    particleContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-    `;
-
-    // Crear partículas
-    for (let i = 0; i < 50; i++) {
-        createParticle(particleContainer);
-    }
-
-    document.body.appendChild(particleContainer);
-}
-
-function createParticle(container) {
-    const particle = document.createElement('div');
-    particle.style.cssText = `
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: rgba(103, 58, 183, 0.3);
-        border-radius: 50%;
-        animation: float ${15 + Math.random() * 10}s infinite linear;
-    `;
-
-    // Posición inicial aleatoria
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 15 + 's';
-
-    container.appendChild(particle);
-
-    // Agregar keyframes para la animación si no existen
-    if (!document.querySelector('#particle-animation')) {
-        const style = document.createElement('style');
-        style.id = 'particle-animation';
-        style.textContent = `
-            @keyframes float {
-                0% {
-                    transform: translateY(100vh) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                }
-                90% {
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-100px) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
+// Funcionalidad simplificada - sin partículas complejas
 
 // Utility function para throttling
 function throttle(func, limit) {
